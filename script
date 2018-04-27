@@ -1,0 +1,18 @@
+
+create database blog;
+
+CREATE TABLE blog.posts (
+	id INT NOT NULL AUTO_INCREMENT pri,
+	titulo varchar(150) NULL,
+	data_criada DATETIME NULL,
+	corpo TEXT NULL,
+	autor varchar(30) NULL
+)
+
+create 
+CREATE TABLE usuarios (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	nome varchar(100) NULL,
+	email varchar(100) NULL,
+	senha varchar(30) null
+)
