@@ -14,7 +14,7 @@ if (isset($_POST['nome']) && !empty($_POST['nome'])) {
 	$sql = "UPDATE usuarios SET nome = '$nome', email = '$email' WHERE id = '$id'";
 	$pdo->query($sql);
 
-	header("location: index.php")
+	header("location: index.php");
 }
 
 	$sql = "SELECT * FROM usuarios WHERE id = '$id'";
