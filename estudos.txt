@@ -1,9 +1,0 @@
-	Por onde começar
-
-1- Dominar os principios das linguagens;
-	-Entender porque as coisas são do jeito que são;
-
-2- Algoritmo;
-
-3- Logica de programação;
-
