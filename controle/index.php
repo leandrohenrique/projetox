@@ -7,7 +7,7 @@ require_once 'config.php';
 	<tr>
 		<th>Nome</th>
 		<th>Email</th>
-		<th>Senha</th>
+		<!-- <th>Senha</th> -->
 	</tr>
 	<?php 
 		$sql = "SELECT * FROM usuarios";
