@@ -1,0 +1,17 @@
+{
+	"name": "psr04-aula",
+	"description": "Aula Sobre PSR-04",
+	"authors":[
+		{
+			"name": "Leandro Henrique",
+			"email": "leandro@henrique.com"
+		}
+	],
+	"require":{},
+	"autoload":{
+		"psr_04":{
+			"App\\": "app",
+			"ETI\\": "src/eti"
+		}
+	} 
+}
