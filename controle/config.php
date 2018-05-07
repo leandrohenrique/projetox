@@ -4,7 +4,7 @@
 $dsn = "pgsql:host=localhost;dbname=dbUnirg";
 $dbuser = "leandrohenrique";
 $dbpass = "root";
-$port = "5432";
+// $port = "5432";
 
 try {
 	$pdo = new PDO($dsn, $dbuser, $dbpass);

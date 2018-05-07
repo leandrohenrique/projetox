@@ -7,8 +7,10 @@ if (isset($_POST['email']) && !empty($_POST['email'])) {
 		$email = addslashes($_POST['eamil']);
 		$senha = addslashes($_POST['senha']);
 
+		$sql = $pdo->query("SELECT * FROM usuarios");
+		
 		if (count($sql) > 0) {
-
+			
 			$dado = $sql->fetch();
 
 			$_SESSION['id'] = $dado['id'];
