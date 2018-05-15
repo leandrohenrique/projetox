@@ -10,11 +10,6 @@ class Pessoa
 		$this->$idade = $idade;
 	}
 
-	// public function get()
-	// {
-	// 	return "{$this->nome} - {$this->idade}";
-	// }
-
 	public function getNome()
 	{
 		return $this->nome;
@@ -41,6 +36,7 @@ class Pessoa
 $l = new Pessoa("Leandro", "27");
 // $l->setNome("Leandro");
 // $l->setIdade(27);
+
 echo $l->getNome();die();
 echo "Nome: ".$l->getNome()."<br>";
 echo "Idade: ".$l->getIdade()."<br>";
