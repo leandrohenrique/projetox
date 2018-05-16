@@ -1,51 +1,43 @@
 <?php
-class Pessoa 
+class Post
 {
-	private $nome;
-	private $idade;
+	private $titulo;
+	private $data;
+	private $corpo;
+	private $comentarios;
+	private $qtComentarios;
 
-	public function __construct($nome, $idade)
+	public function getTitulo()
 	{
-		$this->$nome = $nome;
-		$this->$idade = $idade;
+		return $this->titulo;
 	}
 
-	public function getNome()
+	public function setTitulo($titulo)
 	{
-		return $this->nome;
+		$this->titulo = $titulo;
 	}
 
-	public function setNome($nome)
+	public function addComentarios($msg)
 	{
-		if(is_string($nome)){
-			$this->nome = $nome;	
-		}
+		$this->comentarios[] = $msg;
+		$this->contarComentarios();
 	}
 
-	public function getIdade()
+	public function getQuantosComentarios()
 	{
-		return $this->idade;
+		return $this->qtComentarios;
 	}
 
-	public function setIdade($idade)
+	private function contarComentarios()
 	{
-		$this->idade = $idade;
+		$this->qtComentarios = count($this->comentarios);
 	}
 }
 
-$l = new Pessoa("Leandro", "27");
-// $l->setNome("Leandro");
-// $l->setIdade(27);
+$post = new Post();
+// $post->addComentarios("Teste");
+$post->addComentarios("Teste 1");
+$post->addComentarios("Teste 2");
+$post->addComentarios("Teste 3");
 
-echo $l->getNome();die();
-echo "Nome: ".$l->getNome()."<br>";
-echo "Idade: ".$l->getIdade()."<br>";
-echo "<hr>";
-	
-// $f = new Pessoa();
-// $f->setNome("Fulano");
-// $f->setIdade(99);
-
-// echo "Nome: ".$f->getNome()."<br>";
-// echo "Idade: ".$f->getIdade()."<br>";
-// echo "<hr>";
+echo "Quantidade de comentarios: " . $post->getQuantosComentarios();
