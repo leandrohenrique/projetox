@@ -8,7 +8,7 @@ Class ContaBanco
 	private $saldo;
 	private $status;
 
-	public function __construct($saldo, $status)
+	public function __construct()
 	{
 		$this->saldo = 0;
 		$this->status = false;
@@ -71,6 +71,9 @@ Class ContaBanco
 			$this->saldo = $saldo;
 			if($this->tipo == 'CC' || $this->tipo == 'CP'){
 				$this->tipo = $tipo;
+				echo 'Conta aberta com sucesso';
+			} else {
+				echo "Tipo de conta inválido";
 			}
 		} else {
 			echo "Conta já cadastrada";
