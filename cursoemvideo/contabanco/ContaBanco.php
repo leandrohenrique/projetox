@@ -64,14 +64,16 @@ Class ContaBanco
 		$this->status = $status;
 	}
 
-	public function abrirConta($numConta, $saldo, $tipo)
+	public function abrirConta()
 	{
 		if ($this->status == false){
-			$this->numConta = $numConta;
-			$this->saldo = $saldo;
 			if($this->tipo == 'CC' || $this->tipo == 'CP'){
-				$this->tipo = $tipo;
-				echo 'Conta aberta com sucesso';
+				if($this->tipo == 'CC'){
+					$this->saldo = 50;
+				}
+				if($this->tipo == 'CP'){
+					$this->saldo = 150;
+				}
 			} else {
 				echo "Tipo de conta inválido";
 			}
