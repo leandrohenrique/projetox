@@ -10,8 +10,8 @@ Class ContaBanco
 
 	public function __construct()
 	{
-		$this->saldo = 0;
-		$this->status = false;
+		$this->setSaldo(0);
+		$this->setStatus(false);
 	}
 
 	public function getNumConta()
@@ -66,28 +66,29 @@ Class ContaBanco
 
 	public function abrirConta($tipo)
 	{
-		if ($this->status == false){
-			$this->tipo = $tipo;
-			if($this->tipo == 'CC' || $this->tipo == 'CP'){
-				if($this->tipo == 'CC'){
-					$this->saldo = 50;
+		//if ($this->status == false){
+			$this->setTipo($tipo);
+			$this->setStatus(true);
+			if ($tipo == 'CC' || $tipo == 'CP') {
+				if ($tipo == 'CC'){
+					$this->setSaldo(50);
 				}
-				if($this->tipo == 'CP'){
-					$this->saldo = 150;
+				if ($tipo == 'CP') {
+					$this->setSaldo(150);
 				}
 			} else {
 				echo "Tipo de conta inválida";
 			}
-		} else {
-			echo "Conta já cadastrada";
-		}
+		// } else {
+		// 	echo "Conta já cadastrada";
+		// }
 	}
 
 	public function fecharConta()
 	{
-		if ($this->saldo > 0){
+		if ($this->getSaldo() > 0) {
 			echo "Conta contém dinheiro!";
-		} else if($this->saldo < 0){
+		} else if ($this->getSaldo() < 0) {
 			echo "Conta contém debito!";
 		} else {
 			$this->setStatus(false);
@@ -96,28 +97,38 @@ Class ContaBanco
 
 	public function sacar($valor)
 	{
-		if($this->status == true){
-			if($this->saldo > $valor){
-			   $this->saldo -= $valor;	
+		if ($this->getStatus()) {
+			if ($this->getSaldo() > $valor) {
+			   $this->setSaldo($this->getSaldo() -= $valor);
+			   // $this->saldo -= $valor;	
+			} else {
+				echo "Saldo insuficiente para saque";
 			}
+		} else {
+			echo "Conta inexistente";
 		}
 	}
 
 	public function depositar($valor)
 	{
-		if($this->status == true){
-			$this->saldo += $valor;
+		if ($this->getStatus()) {
+			$this->setSaldo($this->getSaldo() += $valor);
+			// $this->saldo += $valor;
+		}else {
+			echo "Conta fechada";
 		}
 	}
 
 	public function pagarMensalidade()
 	{
-		if($this->status ==  true){
-			if($this->tipo == 'CC'){
-				$this->saldo -= 12;
+		if ($this->getStatus()) {
+			if ($this->getTipo() == 'CC') {
+				$this->setSaldo($this->getSaldo() - 12);
+				//$this->getSaldo() -= 12;
 			}
-			if($this->saldo == 'CF'){
-				$this->saldo -= 20;
+			if ($this->getTipo() == 'CF') {
+				$this->setSaldo($this->getSaldo() - 20)
+				//$this->getSaldo() -= 20;
 			}
 		}
 	}
