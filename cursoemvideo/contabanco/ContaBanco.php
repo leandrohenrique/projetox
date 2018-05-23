@@ -64,9 +64,10 @@ Class ContaBanco
 		$this->status = $status;
 	}
 
-	public function abrirConta()
+	public function abrirConta($tipo)
 	{
 		if ($this->status == false){
+			$this->tipo = $tipo;
 			if($this->tipo == 'CC' || $this->tipo == 'CP'){
 				if($this->tipo == 'CC'){
 					$this->saldo = 50;
@@ -75,10 +76,49 @@ Class ContaBanco
 					$this->saldo = 150;
 				}
 			} else {
-				echo "Tipo de conta inválido";
+				echo "Tipo de conta inválida";
 			}
 		} else {
 			echo "Conta já cadastrada";
+		}
+	}
+
+	public function fecharConta()
+	{
+		if ($this->saldo > 0){
+			echo "Conta contém dinheiro!";
+		} else if($this->saldo < 0){
+			echo "Conta contém debito!";
+		} else {
+			$this->setStatus(false);
+		}
+	}
+
+	public function sacar($valor)
+	{
+		if($this->status == true){
+			if($this->saldo > $valor){
+			   $this->saldo -= $valor;	
+			}
+		}
+	}
+
+	public function depositar($valor)
+	{
+		if($this->status == true){
+			$this->saldo += $valor;
+		}
+	}
+
+	public function pagarMensalidade()
+	{
+		if($this->status ==  true){
+			if($this->tipo == 'CC'){
+				$this->saldo -= 12;
+			}
+			if($this->saldo == 'CF'){
+				$this->saldo -= 20;
+			}
 		}
 	}
 }
