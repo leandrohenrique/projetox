@@ -66,22 +66,19 @@ Class ContaBanco
 
 	public function abrirConta($tipo)
 	{
-		//if ($this->status == false){
-			$this->setTipo($tipo);
-			$this->setStatus(true);
-			if ($tipo == 'CC' || $tipo == 'CP') {
-				if ($tipo == 'CC'){
-					$this->setSaldo(50);
-				}
-				if ($tipo == 'CP') {
-					$this->setSaldo(150);
-				}
-			} else {
-				echo "Tipo de conta inválida";
+		$this->setTipo($tipo);
+		$this->setStatus(true);
+		if ($tipo == 'CC' || $tipo == 'CP') {
+			if ($tipo == 'CC') {
+				$this->setSaldo(50);
 			}
-		// } else {
-		// 	echo "Conta já cadastrada";
-		// }
+			if ($tipo == 'CP') {
+				$this->setSaldo(150);
+			}
+		} else {
+			echo "Tipo de conta inválida";
+			exit();
+		}
 	}
 
 	public function fecharConta()
@@ -98,37 +95,31 @@ Class ContaBanco
 	public function sacar($valor)
 	{
 		if ($this->getStatus()) {
-			if ($this->getSaldo() > $valor) {
-			   $this->setSaldo($this->getSaldo() -= $valor);
-			   // $this->saldo -= $valor;	
+			if ($this->getSaldo() > 0) {
+				$this->setSaldo($this->getSaldo() - $valor);	
 			} else {
-				echo "Saldo insuficiente para saque";
-			}
+				echo "Saldo insuficiente!";
+			}		  
 		} else {
-			echo "Conta inexistente";
+			echo "Conta inexistente!";
 		}
 	}
 
 	public function depositar($valor)
 	{
 		if ($this->getStatus()) {
-			$this->setSaldo($this->getSaldo() += $valor);
-			// $this->saldo += $valor;
-		}else {
-			echo "Conta fechada";
+			$this->setSaldo($this->getSaldo() + $valor);
 		}
 	}
 
 	public function pagarMensalidade()
 	{
-		if ($this->getStatus()) {
-			if ($this->getTipo() == 'CC') {
+		if($this->getStatus()){
+			if($this->getTipo() == 'CC'){
 				$this->setSaldo($this->getSaldo() - 12);
-				//$this->getSaldo() -= 12;
 			}
-			if ($this->getTipo() == 'CF') {
-				$this->setSaldo($this->getSaldo() - 20)
-				//$this->getSaldo() -= 20;
+			if($this->getTipo() == 'CP'){
+				$this->setSaldo($this->getSaldo() - 20);
 			}
 		}
 	}
