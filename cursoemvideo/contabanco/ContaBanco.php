@@ -12,6 +12,7 @@ Class ContaBanco
 	{
 		$this->setSaldo(0);
 		$this->setStatus(false);
+		echo "<p>Conta criada com sucesso!</p>";
 	}
 
 	public function getNumConta()
@@ -95,7 +96,7 @@ Class ContaBanco
 	public function sacar($valor)
 	{
 		if ($this->getStatus()) {
-			if ($this->getSaldo() > 0) {
+			if ($this->getSaldo() >= 0) {
 				$this->setSaldo($this->getSaldo() - $valor);	
 			} else {
 				echo "Saldo insuficiente!";

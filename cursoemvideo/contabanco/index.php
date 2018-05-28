@@ -2,22 +2,31 @@
 
 require_once 'ContaBanco.php';
 
-$cc = new ContaBanco();
-$cc->abrirConta('CC');
-//$cc->fecharConta();
-//$cc->setDono('Leandro');
-// $cc->setNumConta(123);
-// //$cc->setTipo('CC');
-// $cc->setSaldo(0);
-// $cc->abrirConta();
-// //$cc->fecharConta();
-// $cc->setStatus(true);
+$p1 = new ContaBanco();
+$p2 = new ContaBanco();
 
- $cc->sacar(25);
-// //$cc->pagarMensalidade();
- $cc->depositar(170);
-// $cc->sacar(195);
- $cc->pagarMensalidade();
-// $cc->depositar(12);
-// $cc->fecharConta();
-var_dump($cc);
+$p1->abrirConta('CC');
+$p1->setNumConta('1111');
+$p1->setDono("Leandro");
+
+$p2->abrirConta('CP');
+$p2->setNumConta('2222');
+$p2->setDono('Kelly');
+
+$p1->depositar(300);
+$p2->depositar(500);
+
+$p2->sacar(150);
+
+$p1->pagarMensalidade();
+$p2->pagarMensalidade();
+
+$p1->sacar(338);
+$p2->sacar(480);
+
+$p1->fecharConta();
+$p2->fecharConta();
+
+
+var_dump($p1);
+var_dump($p2);
