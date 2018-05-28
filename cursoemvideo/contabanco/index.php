@@ -3,7 +3,7 @@
 require_once 'ContaBanco.php';
 
 $cc = new ContaBanco();
-$cc->abrirConta('CCp');
+$cc->abrirConta('CC');
 //$cc->fecharConta();
 //$cc->setDono('Leandro');
 // $cc->setNumConta(123);

@@ -4,7 +4,7 @@
 	- Dedique um tempo para pensar e pesquisar antes de executar qualquer coisa;
 	- Pensar passo a passo;
 	- Entenda primeiro o problema antes de executar qualquer coisa;
-	- Saber o QUE precisa ser feito; 
+	- Saber o QUE precisa ser feito, questionar o que tem que ser feito e saber por que tem que ser feito; 
 
 2- Dominar os principios das linguagens;
 	- Entender porque as coisas são do jeito que são;
