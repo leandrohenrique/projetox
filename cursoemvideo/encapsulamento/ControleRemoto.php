@@ -14,32 +14,32 @@ class ControleRemoto implements Controlador
 		$this->setTocando(false);
 
 	} 
-	public function getVolume()
+	private function getVolume()
 	{
 		return $this->volume;
 	}
 
-	public function setVolume($volume)
+	private function setVolume($volume)
 	{
 		$this->volume = $volume;
 	}
 
-	public function getTocando()
+	private function getTocando()
 	{
 		return $this->tocando;
 	}
 
-	public function setTocando($tocando)
+	private function setTocando($tocando)
 	{
 		$this->tocando = $tocando;
 	}
 
-	public function getLigado()
+	private function getLigado()
 	{
 		return $this->ligado;
 	}
 
-	public function setLigado($ligado)
+	private function setLigado($ligado)
 	{
 		$this->ligado = $ligado;
 	}
@@ -54,10 +54,10 @@ class ControleRemoto implements Controlador
 		$this->setLigado(false);
 	}
 
-	public function abriMenu()
+	public function abrirMenu()
 	{
 		echo "<br> Está ligado?: " . ($this->getLigado() ? "SIM" : "NÃO");
-		echo "<br> Está tocando?: " . ($this->getTocando() ? "SIM" : "NÃO";
+		echo "<br> Está tocando?: " . ($this->getTocando() ? "SIM" : "NÃO");
 		echo "<br>Volume: " . $this->getVolume();
 		for ($i = 0; $i <= $this->getVolume(); $i+=10) {
 			echo "|";
@@ -73,14 +73,14 @@ class ControleRemoto implements Controlador
 	public function maisVolume()
 	{
 		if ($this->getLigado()) {
-			$this->setVolume($this->getVolume + 1);
+			$this->setVolume($this->getVolume() + 5);
 		}
 	}
 
 	public function menosVolume()
 	{
 		if ($this->getLigado()) {
-			$this->setVolume($this->getVolume() - 1);
+			$this->setVolume($this->getVolume() - 5);
 		}
 	}
 
@@ -100,8 +100,8 @@ class ControleRemoto implements Controlador
 
 	public function play()
 	{
-		if ($this->getLigado() && !($this->getTocando())) {
-			$this->getTocando(true);
+		if ($this->getLigado() && !$this->getTocando()) {
+			$this->setTocando(true);
 		}
 	}
 
@@ -111,5 +111,4 @@ class ControleRemoto implements Controlador
 			$this->getTocando(false);
 		}
 	}
-
 }
