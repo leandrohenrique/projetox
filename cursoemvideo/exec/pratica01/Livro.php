@@ -11,8 +11,13 @@ class Livro implements Publicacao
 	private $aberto;
 	private $leitor;
 
-	public function __construct()
+	public function __construct($titulo, $autor, $totalPag, $leitor)
 	{
+		$this->setTitulo($titulo);
+		$this->setAutor($autor);
+		$this->setTotalPag($totalPag);
+		$this->setLeitor($leitor);
+		$this->setPagAtual(0);
 		$this->setAberto(false);
 	}
 	public function setTitulo($titulo)
@@ -74,58 +79,52 @@ class Livro implements Publicacao
 	{
 		return $this->leitor;
 	}
-
+  
 	public function detalhes()
-	{
-		echo "Título: " . $this->getTitulo();
-		echo "Autor: " . $this->getAutor();
-		echo "Total de páginas: " . $this->getTotalPag();
+	{	
+		
+		echo "<p>Título: " . $this->getTitulo() . "</p>";
+		echo "<p>Autor: " . $this->getAutor() ."</p>";
+		echo "<p>Total de páginas: " . $this->getTotalPag() . "</p>";
+		echo "<p>Pagina atual: " . $this->getPagAtual() . "</p>";
+		echo "<p>Sendo lido por: " . $this->getLeitor()->getNome() . "</p>";
+
 	}
 
 	public function abrir()
 	{
-		if ($this->getAberto()) {
-			echo "<p>Abriu na página:" . $this->getPagAtual() . "</p>";
-			$this->setAberto(true);
-		} else {
-			echo "Livro está aberto";
-		}
+		$this->setAberto(true);
 	}
 
 	public function fechar()
 	{
-		if ($this->getAberto()) {
-			echo "<p>Fechou na página:" . $this->getPagAtual() . "</p>";
-			$this->setFechar(false);
-		} else {
-			echo "livro está fechado";
-		}
+		$this->setAberto(false);
 	}
 
-	public function folhear()
+	public function folhear($pag)
 	{
-		if ($this->getAberto()) {
-			$this->avancarPag();
+		if ($pag > $this->getTotalPag()) {
+			$this->setPagAtual(0);
 		} else {
-			echo "Livro fechado";
+			$this->setPagAtual($pag);
 		}
 	}
 
 	public function avancarPag()
 	{
-		if ($this->getAberto() && ($this->getPagAtual() < $this->getTotalPag())) {
+		if ($this->getPagAtual() < $this->getTotalPag()){
 			$this->setPagAtual($this->getPagAtual() + 1);
 		} else {
-			echo "<p>Livro fecha ou leitura encerrada pelo leitor</p>";
+			echo "Chegou ao final do livro";
 		}
 	}
 
 	public function voltarPag()
 	{
-		if ($this->getAberto() && ($this->getPagAtual() <= $this->getTotalPag())) {
+		if ($this->getPagAtual() <= $this->getTotalPag()) {
 			$this->setPagAtual($this->getPagAtual() - 1);
 		} else {
-			echo "<p>Livro fecha ou leitura encerrada pelo leitor</p>";
+			echo "Chegou ao final do livro";
 		}
 	}
 }
