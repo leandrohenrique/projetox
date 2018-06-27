@@ -12,7 +12,7 @@ class Bolsista  extends Aluno
 
 	public function pagarMensalidade()
 	{
-		echo "<p>" $this->setNome() ." é bolsista então paga com desconto" . "</p>";
+		echo "<p>" . $this->getNome() ." é bolsista então paga com desconto</p>";
 	}
 
 	public function getBolsa()

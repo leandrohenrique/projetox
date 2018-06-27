@@ -38,6 +38,6 @@ class Aluno extends Pessoa
 
 	public function pagarMensalidade()
 	{
-		echo "<p>Pagando mensalidade  do auluno: " . $this->getNome() . "</p>";
+		echo "<p>Pagando mensalidade  do aluno: " . $this->getNome() . "</p>";
 	}
 }

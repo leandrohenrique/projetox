@@ -30,6 +30,7 @@ class Professor extends Pessoa
 	{
 		if ($valor > 0){
 			$this->setSalario($this->getSalario() + $valor);
+			echo "<p>O professor " .$this->getNome(). " recebeu aumento de R$" .$valor. " reais</p>";
 		}
 	}
 }
