@@ -40,9 +40,9 @@ Segredos
 2# Um projeto não se resume a codígo
 3# Imitadores natos;
 4# assistir/estudar a aula 1 vez entender o conceito
- e a logica, assistir/estudar a segunda vez preste atenção no codigoe ntender como  funciona;
-5# praticar;
-6# fazer backup periodicos
+ e a logica, assistir/estudar a 2 vez preste atenção no codigoe ntender como  funciona;
+5# Praticar;
+6# Fazer backup periodicos
 
 Passos:
 
