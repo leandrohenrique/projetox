@@ -26,7 +26,7 @@ function writeTotal(value)
 
 function calculeTotalProduto()
 {
-	var produtos      = document.getElementsByClassName("produto");
+	var produtos      = document.getElementsByClassName("produto");// cria um array 
 	var totalProdutos = 0;
 
 	for (var pos = 0; pos < produtos.length; pos++) {
