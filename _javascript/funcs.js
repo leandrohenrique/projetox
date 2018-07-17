@@ -27,10 +27,14 @@ function calculateTotalProducts()
 	return total;
 }
 
-$(".quantity").change(function(){
-	writeTotal(calculateTotalProducts());
-});
-/*var todosElementos = document.getElementsByTagName("*");
+// $(".quantity").change(function(){
+// 	writeTotal(calculateTotalProducts());
+// });
+
+
+
+
+var todosElementos = document.getElementsByTagName("*");
 var resutados = [];
 
 var elemento;
@@ -55,7 +59,19 @@ function floatToMoneyText(value)
 	return text.substr(0,text.length -2) + "," + text.substr(-2);
 }
 
-function readTotal()
+function onDocumentLoad()
+{
+	var textEdits = document.getElementByClassName("quantity");
+
+	for (var i = 0; i < textEdits.length; i ++){
+		textEdits[i].onchange = function(){
+			writeTotal(calculeTotalProduto());
+		}
+	}
+	window.onload = onDocumentLoad;
+}
+
+/*function readTotal()
 {
 	var total = document.getElementById("total");
 	return moneyTextToFloat(total.innerHTML);
@@ -87,16 +103,5 @@ function calculeTotalProduto()
 		totalProdutos += subtotal;
 	}
 	return totalProdutos;
-}
-	
-function onDocumentLoad()
-{
-	var textEdits = document.getElementByClassName("quantity");
-
-	for (var i = 0; i < textEdits.length; i ++){
-		textEdits[i].onchange = function(){
-			writeTotal(calculeTotalProduto());
-		}
-	}
-	window.onload = onDocumentLoad;
 }*/
+	
