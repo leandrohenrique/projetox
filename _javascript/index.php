@@ -7,7 +7,7 @@
 		<table>
 			<tbody>
 				<tr class="produto"><!-- linha da tabela -->
-					<td>
+					<td><!-- Celula da linha -->
 						<div class="price">R$ 29,90</div>
 					</td>
 					<td>
