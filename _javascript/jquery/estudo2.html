@@ -6,16 +6,22 @@
 </head>
 <body>
 	<div id="app">
-		<!-- <button class="botao">Adicionar</button> -->
+		<button class="botao">Adicionar</button>
 	</div>
 	<script type="text/javascript">
-		
-		var btnElement = document.createElement('button');
-		document.body.appendChild(btnElement);
+
+		var btnElement = document.createElement('button');//Criar o elemento
+		btnElement.setAttribute('class', 'botao');// criar as propriedades dos elementos
+
+		var textBtnElement = document.createTextNode('Adicionar Novo');//Criar texto
+		btnElement.appendChild(textBtnElement);//adicionar os elementos filhos nos elementos Pai.
+
+		var container = document.querySelector('#app');
+		container.appendChild(btnElement);
+
 
 		console.log(btnElement);
 
-https://rocketseat.com.br/videos/curso-javascript-basico-do-zero?utm_source=mautic&utm_medium=funil&utm_campaign=curso_javascript_basico#2/1
 	</script>
 </body>
 </html>
